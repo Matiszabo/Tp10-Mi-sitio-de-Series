@@ -1,6 +1,10 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Tp10_Mi_sitio_de_Series.Models;
+using temp.Models;
+using ser.Models;
+using act.Models;
+using basee.Models;
 
 namespace Tp10_Mi_sitio_de_Series.Controllers;
 
@@ -15,6 +19,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        Series listaSeries=BD.SeleccionarSeries();
+        ViewBag.Series = listaSeries;
         return View();
     }
 
