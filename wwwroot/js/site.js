@@ -1,4 +1,4 @@
-﻿function MostrarActor(idS) {
+﻿function MostrarActores(idS) {
     $.ajax(
         {
             type: 'POST',
