@@ -1,15 +1,49 @@
-﻿@using ser.Models;
-@using act.Models;
-@using basee.Models;
-
-@{
-    ViewData["Title"] = "Home Page";
-} 
-@foreach (Series item in ViewBag.Series)
-{
-    
+﻿@{
+    ViewData["Title"] = "Cuevana";
 }
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">BIENVENIDO</h1>
+</div>
+
+<div class = "row">
+@{
+    @foreach (Series item in ViewBag.Series)
+    {
+            <div class="card" style="width: 18rem;">
+                <img src="@item.imagenSerie" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@item.nombreSerie nombreSerie</h5>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalSerie" onclick="MostrarActor(@item.idSerie)">
+                        Ver Actores
+                    </button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalSerie" onclick="MostrarTemporadas(@item.idSerie)">
+                        Temporadas
+                    </button>
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ModalSerie" onclick="MostrarMasInfo(@item.idSerie)">
+                        Más info
+                    </button>
+                </div>
+            </div>
+        
+    }
+}
+</div>
+
+<div class="modal fade" id="ModalSerie" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="titulo">Modal title</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="contenidoModal" class="modal-body text-center">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

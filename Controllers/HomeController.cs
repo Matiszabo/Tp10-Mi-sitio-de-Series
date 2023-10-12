@@ -17,18 +17,27 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+     public IActionResult Index(int idS)
     {
-        Series listaSeries=BD.SeleccionarSeries();
-        ViewBag.Series = listaSeries;
+        ViewBag.Series =  BD.TraerSeries();
         return View();
     }
 
-    public IActionResult Privacy()
+    public List<Actores> MostrarActoresAjax(int idSerie)
     {
-        return View();
+        return BD.TraerActores(idSerie);
     }
 
+    public Series MostrarInfoSeriesAjax(int idSerie)
+    {
+        return BD.verInfoSerie(idSerie);
+    }
+
+    public List<Temporadas> MostrarTemporadasAjax(int idSerie)
+    {
+        return BD.TraerTemporadas(idSerie);
+    }
+    
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

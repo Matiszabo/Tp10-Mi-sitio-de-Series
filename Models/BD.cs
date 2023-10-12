@@ -13,33 +13,39 @@ namespace basee.Models
     {
         private static string _connectionString = @"Server=localhost;DataBase=Login+Registro;Trusted_Connection=True;";
         
-       public static Series SeleccionarSeries()
-    {
-        Series todasLasSeries = new Series();
-        using (SqlConnection db = new SqlConnection(_connectionString))
+        public static List<Actores> TraerActores(int idS)
         {
-            string SQL = "SELECT * FROM Series";
+            using (SqlConnection db = new SqlConnection(_connectionString))
+            {
+                string sql = "SELECT * from Actores where idSerie = @pid";
+                return db.Query<Actores>(sql, new {pid = idS }).ToList();
             }
-        return todasLasSeries;
-    }
-            public static Actores SeleccionarActores()
-    {
-        Actores todosLosActores = new Actores();
-        using (SqlConnection db = new SqlConnection(_connectionString))
+        }
+        public static List<Series> TraerSeries()
         {
-            string SQL = "SELECT * FROM Actores";
-                    }
-        return todosLosActores;
-    }
-           public static Temporadas SeleccionarTemporadas()
-    {
-        Temporadas todasLasTemporadas = new Temporadas();
-        using (SqlConnection db = new SqlConnection(_connectionString))
+            using (SqlConnection db = new SqlConnection(_connectionString))
+            {
+                string sql = "SELECT * from Series";
+                return db.Query<Series>(sql).ToList();
+            }
+        }
+        public static Series verInfoSerie(int idS)
         {
-            string SQL = "SELECT * FROM Temporadas";
-                    }
-        return todasLasTemporadas;
+            Series serieActual = null;
+            using (SqlConnection db = new SqlConnection(_connectionString))
+            {
+                string sql = "SELECT * FROM Series WHERE idSerie = @pid";
+                serieActual = db.QueryFirstOrDefault<Series>(sql,new {pid = idS});
+            }
+            return serieActual;
+        }
+        public static List<Temporadas> TraerTemporadas(int idS)
+        {
+           using (SqlConnection db = new SqlConnection(_connectionString))
+            {
+                string sql = "SELECT * from Temporadas where idSerie = @pid";
+                return db.Query<Temporadas>(sql, new {pid = idS }).ToList();
+            }
+        }
     }
-  
-    }
-    }
+}
