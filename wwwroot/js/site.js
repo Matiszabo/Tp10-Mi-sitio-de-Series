@@ -1,5 +1,4 @@
-﻿function MostrarActor(idS)
-{
+﻿function MostrarActor(idS) {
     $.ajax(
         {
             type: 'POST',
@@ -7,16 +6,15 @@
             url: '/Home/MostrarActoresAjax',
             data: { idSerie: idS },
             success:
-                function(response)
-                {
-                    $("#contenidoModal").html(response.nombreActor);                
+                function (response) {
+                    $("#contenidoModal").html(response.nombreActor);
                 }
-             
-        })
+
+        }
+    )
 }
 
-function MostrarMasInfo(idS)
-{
+function MostrarMasInfo(idS) {
     $.ajax(
         {
             type: 'POST',
@@ -24,16 +22,15 @@ function MostrarMasInfo(idS)
             url: '/Home/MostrarInfoSeriesAjax',
             data: { idSerie: idS },
             success:
-                function(response)
-                {
-                    $("#contenidoModal").html(response.sinopsis);           
+                function (response) {
+                    $("#contenidoModal").html(response.sinopsis);
                 }
-             
-        })
+
+        }
+    )
 }
 
-function MostrarTemporadas(idS)
-{
+function MostrarTemporadas(idS) {
     $.ajax(
         {
             type: 'POST',
@@ -41,14 +38,14 @@ function MostrarTemporadas(idS)
             url: '/Home/MostrarTemporadasAjax',
             data: { idSerie: idS },
             success:
-                function(response)
-                {
+                function (response) {
                     var contenido = "";
                     response.forEach(element => {
                         contenido += "<li>" + element.tituloTemporada + "</li>";
                     });
                     $("#contenidoModal").html(contenido);
                 }
-             
-        })
+
+        }
+    )
 }
