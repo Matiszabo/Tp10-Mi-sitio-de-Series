@@ -11,7 +11,7 @@ namespace basee.Models
 {
     public static class BD
     {
-        private static string _connectionString = @"Server=localhost;DataBase=Login+Registro;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=localhost;DataBase=BDSeries;Trusted_Connection=True;";
         
         public static List<Actores> TraerActores(int idS)
         {
