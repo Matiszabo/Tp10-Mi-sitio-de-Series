@@ -16,13 +16,13 @@
             <img src="@item.ImagenSerie" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">@item.Nombre</h5>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalSerie" onclick="MostrarActor(@item.IdSerie)">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalSerie" onclick="MostrarActores(@item.IdSerie)">
                     Ver Actores
                 </button>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalSerie" onclick="MostrarTemporadas(@item.IdSerie)">
                     Temporadas
                 </button>
-                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ModalSerie" onclick="MostrarMasInfo(@item.IdSerie)">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#ModalSerie" onclick="MostrarMasInfo(@item.IdSerie)">
                     Más info
                 </button>
             </div>

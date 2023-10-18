@@ -5,10 +5,13 @@
             dataType: 'JSON',
             url: '/Home/MostrarActoresAjax',
             data: { idSerie: idS },
-            success:
-                function (response) {
-                    $("#contenidoModal").html(response.nombreActor);
-                }
+            success: function (response) {
+                var contenido = "";
+                response.forEach(actor => {
+                    contenido += "<li>" + actor.nombre + "</li>";
+                });
+                $("#contenidoModal").html(contenido);
+            }            
         }
     )
 }
