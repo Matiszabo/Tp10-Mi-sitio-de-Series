@@ -9,7 +9,6 @@
                 function (response) {
                     $("#contenidoModal").html(response.nombreActor);
                 }
-
         }
     )
 }

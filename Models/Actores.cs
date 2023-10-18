@@ -6,5 +6,4 @@ namespace act.Models
         public int IdSerie { get;set;}
         public string Nombre {get;set;}
     }
-    
 }
